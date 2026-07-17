@@ -19,8 +19,8 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
       {/* ambient gradient blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[38rem] h-[38rem] rounded-full bg-[var(--color-violet)]/25 blur-[120px] animate-float-slow pointer-events-none" />
-      <div className="absolute bottom-[-15%] right-[-10%] w-[34rem] h-[34rem] rounded-full bg-[var(--color-signal)]/25 blur-[120px] animate-float-slower pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-72 h-72 sm:w-[38rem] sm:h-[38rem] rounded-full bg-[var(--color-violet)]/25 blur-[50px] sm:blur-[120px] animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-[-15%] right-[-10%] w-64 h-64 sm:w-[34rem] sm:h-[34rem] rounded-full bg-[var(--color-signal)]/25 blur-[50px] sm:blur-[120px] animate-float-slower pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center w-full">
         <div>
