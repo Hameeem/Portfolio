@@ -9,7 +9,9 @@ interface Particle {
   hue: 'violet' | 'signal'
 }
 
-/** Lightweight ambient floating-particle canvas. Purely decorative, low particle count. */
+/** Lightweight ambient floating-particle canvas. Purely decorative, low particle count.
+ *  Skips itself entirely on touch devices and small screens, where a continuous
+ *  requestAnimationFrame loop is the most likely source of jank. */
 export function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
@@ -19,10 +21,10 @@ export function ParticleBackground() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches
-const isSmallScreen = window.innerWidth < 768
-if (prefersReducedMotion || isCoarsePointer || isSmallScreen) return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches
+    const isSmallScreen = window.innerWidth < 768
+    if (prefersReducedMotion || isCoarsePointer || isSmallScreen) return
 
     let width = (canvas.width = window.innerWidth)
     let height = (canvas.height = window.innerHeight)
