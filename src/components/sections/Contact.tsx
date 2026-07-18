@@ -155,7 +155,7 @@ export function Contact() {
 
               {!isConfigured && (
                 <p className="text-xs text-[var(--color-mist-dim)] font-mono">
-                  EmailJS isn't configured yet — this form will open your email client instead. See README for setup.
+                   Email me here
                 </p>
               )}
             </form>
