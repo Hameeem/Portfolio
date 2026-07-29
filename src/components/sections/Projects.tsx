@@ -8,7 +8,7 @@ import type { Project, ProjectCategory } from '../../types'
 import { cn } from '../../lib/utils'
 
 const CATEGORIES: ('All' | ProjectCategory)[] = [
-  'All', 'AI', 'Machine Learning', 'Python', 'Data Engineering', 'Web Development', 'Embedded Systems',
+  'All', 'AI', 'Python', 'Data Engineering', 'Web Development', 'Embedded Systems',
 ]
 
 export function Projects() {
