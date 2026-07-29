@@ -5,15 +5,15 @@ import { useCountUp } from '../../hooks/useCountUp'
 
 const FOCUS_AREAS = [
   'Artificial Intelligence',
-  'Machine Learning',
-  'Backend Engineering',
+  
+  'Data Analyst',
   'Data Engineering',
-  'Full Stack Development',
+  'GenAI',
   'Problem Solving',
 ]
 
 const STATS = [
-  { label: 'Projects shipped', value: 7, suffix: '+' },
+  { label: 'Projects shipped', value: 8, suffix: '+' },
   { label: 'Semesters completed', value: 6, suffix: '' },
   { label: 'Skill areas', value: 6, suffix: '' },
   { label: 'Certifications', value: 5, suffix: '' },
