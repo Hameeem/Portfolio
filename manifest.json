@@ -1,0 +1,12 @@
+{
+  "name": "Hameem Baba — Portfolio",
+  "short_name": "Hameem",
+  "description": "Software Engineer & Data Engineering Enthusiast portfolio",
+  "start_url": "/Portfolio/",
+  "display": "standalone",
+  "background_color": "#05050a",
+  "theme_color": "#05050a",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
