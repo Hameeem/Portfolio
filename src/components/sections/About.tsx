@@ -4,18 +4,18 @@ import { GlassCard } from '../ui/GlassCard'
 import { useCountUp } from '../../hooks/useCountUp'
 
 const FOCUS_AREAS = [
-  'Artificial Intelligence',
-  
-  'Data Analyst',
-  'Data Engineering',
-  'GenAI',
+  'Full-Stack SaaS Architecture',
+  'Data Engineering & Telemetry',
+  'Artificial Intelligence & RAG',
+  'Real-Time WebSockets & Telematics',
+  'Machine Learning & Analytics',
   'Problem Solving',
 ]
 
 const STATS = [
   { label: 'Projects shipped', value: 8, suffix: '+' },
-  { label: 'Semesters completed', value: 6, suffix: '' },
-  { label: 'Skill areas', value: 6, suffix: '' },
+  { label: 'Flagship SaaS apps', value: 2, suffix: '' },
+  { label: 'Tech Stack Areas', value: 6, suffix: '' },
   { label: 'Certifications', value: 5, suffix: '' },
 ]
 
@@ -23,11 +23,11 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
   const { ref, value: current } = useCountUp(value)
   return (
     <div>
-      <div className="font-display text-3xl sm:text-4xl font-semibold text-gradient">
+      <div className="font-display text-3xl sm:text-4xl font-bold text-gradient">
         <span ref={ref}>{current}</span>
         {suffix}
       </div>
-      <div className="text-xs sm:text-sm text-[var(--color-mist)] mt-1">{label}</div>
+      <div className="text-xs sm:text-sm font-mono text-[var(--color-mist)] mt-1">{label}</div>
     </div>
   )
 }
@@ -38,7 +38,7 @@ export function About() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <SectionHeading
           eyebrow="01 — About"
-          title="Building software that works end to end."
+          title="Building production software that works end to end."
           description=""
         />
 
@@ -50,20 +50,10 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-[var(--color-mist)] text-base sm:text-lg leading-relaxed">
-              I'm a Computer Science Engineering student who cares less about knowing a
-              technology and more about what it lets me build. That's pulled me toward
-              the intersection of <span className="text-[var(--color-ivory)]">data
-              engineering</span>, <span className="text-[var(--color-ivory)]">AI</span>,
-              and <span className="text-[var(--color-ivory)]">full-stack development</span> —
-              disciplines that all come down to the same question: how do you take
-              something raw and messy and turn it into something reliable?
+              I'm a Computer Science Engineering student focused on building reliable software platforms — from multi-tenant <span className="text-[var(--color-ivory)] font-semibold">full-stack SaaS systems</span> to <span className="text-[var(--color-ivory)] font-semibold">data engineering pipelines</span> and <span className="text-[var(--color-ivory)] font-semibold">AI/RAG models</span>.
             </p>
             <p className="mt-5 text-[var(--color-mist)] text-base sm:text-lg leading-relaxed">
-              That question is what led to <span className="text-[var(--color-ivory)]">DataFlowX</span>,
-              my flagship project — an end-to-end platform that automates ingestion,
-              validation, transformation, orchestration, and monitoring for real datasets.
-              Outside of it, I'm usually deep in a new library, a Kaggle dataset, or an
-              AI-assisted workflow, learning by building rather than just reading docs.
+              My flagship platforms include <span className="text-[var(--color-cyan-soft)] font-semibold">FleetTrack</span> (a production multi-tenant fleet telematics SaaS with simulated live GPS tracking via WebSockets and Mapbox GL) and <span className="text-[var(--color-violet-soft)] font-semibold">DataFlowX</span> (an automated data ingestion, validation, and Airflow orchestration platform).
             </p>
 
             <div className="flex flex-wrap gap-2.5 mt-7">
@@ -74,7 +64,7 @@ export function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-mono border border-[var(--color-line)] text-[var(--color-mist)] hover:border-[var(--color-violet-soft)] hover:text-[var(--color-ivory)] transition-colors"
+                  className="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-mono border border-[var(--color-line)] text-[var(--color-mist)] hover:border-[var(--color-cyan-soft)] hover:text-[var(--color-ivory)] hover:bg-[var(--color-cyan)]/10 transition-all cursor-default"
                 >
                   {area}
                 </motion.span>
@@ -82,7 +72,7 @@ export function About() {
             </div>
           </motion.div>
 
-          <GlassCard className="p-7 grid grid-cols-2 gap-7 h-fit">
+          <GlassCard className="p-7 grid grid-cols-2 gap-7 h-fit border-[var(--color-cyan-soft)]/20 shadow-xl">
             {STATS.map((s) => (
               <Stat key={s.label} {...s} />
             ))}

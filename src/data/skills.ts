@@ -4,31 +4,40 @@ export const skillGroups: SkillGroup[] = [
   {
     group: 'Languages',
     icon: 'code',
-    skills: ['Python', 'Java', 'C++', 'C', 'JavaScript', 'SQL', 'HTML5', 'CSS3'],
+    skills: ['Python', 'TypeScript', 'JavaScript (ES6+)', 'SQL (MySQL/Postgres)', 'C++', 'Java', 'C', 'HTML5', 'CSS3'],
   },
   {
-    group: 'Frameworks',
+    group: 'Frameworks & Full-Stack',
     icon: 'layers',
-    skills: ['React', 'Tailwind CSS', 'Streamlit'],
+    skills: ['Next.js', 'React 19', 'Node.js', 'Express.js', 'FastAPI', 'Streamlit', 'Tailwind CSS v4', 'Chakra UI'],
   },
   {
-    group: 'Libraries',
-    icon: 'box',
-    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn'],
+    group: 'State & Real-Time Telemetry',
+    icon: 'activity',
+    skills: ['Redux Toolkit', 'Socket.io', 'Mapbox GL', 'WebSockets', 'REST APIs', 'JWT Auth', 'Recharts', 'Plotly'],
+  },
+  {
+    group: 'AI & Machine Learning',
+    icon: 'cpu',
+    skills: [
+      'RAG Architecture',
+      'FAISS Vector Search',
+      'LangChain',
+      'OpenAI API',
+      'Anthropic API',
+      'Prompt Optimization',
+      'AI Agent Development',
+      'Machine Learning (Scikit-learn)',
+    ],
+  },
+  {
+    group: 'Data Engineering & Analytics',
+    icon: 'database',
+    skills: ['Pandas', 'NumPy', 'SQLAlchemy', 'Apache Airflow', 'Docker', 'Redis', 'Power BI', 'Tableau', 'WordCloud', 'Matplotlib'],
   },
   {
     group: 'Tools & Platforms',
     icon: 'tool',
-    skills: ['Git', 'GitHub', 'VS Code', 'Jupyter Notebook', 'MySQL', 'Power BI', 'Excel', 'Tableau', 'AutoCAD'],
-  },
-  {
-    group: 'Big Data',
-    icon: 'database',
-    skills: ['Hadoop', 'Hive', 'HBase', 'Cassandra'],
-  },
-  {
-    group: 'AI',
-    icon: 'cpu',
-    skills: ['Prompt Engineering', 'Prompt Optimization', 'AI-Assisted Development', 'AI Agent Development', 'Machine Learning'],
+    skills: ['Git', 'GitHub', 'MySQL', 'PostgreSQL', 'SQLite', 'Vercel', 'VS Code', 'Jupyter Notebook', 'Arduino', 'Proteus'],
   },
 ]

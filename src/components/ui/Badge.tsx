@@ -4,7 +4,7 @@ export function Badge({ children, className }: { children: React.ReactNode; clas
   return (
     <span
       className={cn(
-        'inline-flex items-center px-3 py-1 rounded-full text-xs font-mono border border-[var(--color-line)] text-[var(--color-mist)] bg-[var(--color-surface-2)]',
+        'inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono border border-[var(--color-line)] text-[var(--color-mist)] bg-[var(--color-surface-2)]/90 hover:text-[var(--color-ivory)] hover:border-[var(--color-cyan-soft)]/50 transition-all',
         className
       )}
     >

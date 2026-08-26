@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiGithub, FiExternalLink, FiStar } from 'react-icons/fi'
+import { FiGithub, FiExternalLink, FiTag } from 'react-icons/fi'
 import type { Project } from '../../types'
 import { useTilt } from '../../hooks/useTilt'
 import { Badge } from './Badge'
@@ -26,38 +26,41 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
         onMouseLeave={onMouseLeave}
         onClick={() => onOpen(project)}
         data-cursor-hover
-        className="glass rounded-2xl overflow-hidden cursor-pointer group h-full flex flex-col transition-[border-color] duration-300 hover:border-[var(--color-violet-soft)]/50"
+        className="glass rounded-2xl overflow-hidden cursor-pointer group h-full flex flex-col transition-all duration-300 hover:border-[var(--color-cyan-soft)]/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)]"
         style={{ transformStyle: 'preserve-3d' }}
       >
         <div
           className="h-36 relative flex items-center justify-center overflow-hidden"
           style={{
-            background: `linear-gradient(135deg, ${project.heroGradient[0]}33, ${project.heroGradient[1]}33)`,
+            background: `linear-gradient(135deg, ${project.heroGradient[0]}44, ${project.heroGradient[1]}44)`,
           }}
         >
           <div
-            className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity"
+            className="absolute inset-0 opacity-40 group-hover:opacity-75 transition-opacity"
             style={{
-              backgroundImage: `radial-gradient(circle at 30% 30%, ${project.heroGradient[0]}55, transparent 60%), radial-gradient(circle at 70% 70%, ${project.heroGradient[1]}55, transparent 60%)`,
+              backgroundImage: `radial-gradient(circle at 30% 30%, ${project.heroGradient[0]}66, transparent 60%), radial-gradient(circle at 70% 70%, ${project.heroGradient[1]}66, transparent 60%)`,
             }}
           />
           {project.flagship && (
-            <span className="absolute top-3 right-3 font-mono text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full bg-gradient-to-r from-[var(--color-violet)] to-[var(--color-signal)] text-white">
+            <span className="absolute top-3 right-3 font-mono text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-gradient-to-r from-[var(--color-cyan-soft)] to-[var(--color-violet)] text-slate-950 shadow-md">
               Flagship
             </span>
           )}
-          <span className="font-display text-2xl font-semibold text-[var(--color-ivory)]/90 relative z-10 px-4 text-center">
+          <span className="font-display text-xl sm:text-2xl font-bold text-[var(--color-ivory)] relative z-10 px-4 text-center group-hover:scale-105 transition-transform duration-300">
             {project.title}
           </span>
         </div>
 
         <div className="p-5 flex flex-col flex-1">
-          <div className="flex items-center justify-between text-[10px] font-mono text-[var(--color-mist-dim)] uppercase tracking-wide mb-2">
-            <span>{project.status}</span>
-            <span>{project.difficulty}</span>
+          <div className="flex items-center justify-between text-[11px] font-mono text-[var(--color-cyan-soft)] uppercase tracking-wider mb-2">
+            <span className="flex items-center gap-1 font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-mint)]" />
+              {project.status}
+            </span>
+            <span className="text-[var(--color-mist-dim)]">{project.difficulty}</span>
           </div>
 
-          <p className="text-sm text-[var(--color-mist)] leading-relaxed flex-1">{project.tagline}</p>
+          <p className="text-xs sm:text-sm text-[var(--color-mist)] leading-relaxed flex-1 font-normal">{project.tagline}</p>
 
           <div className="flex flex-wrap gap-1.5 mt-4">
             {project.techStack.slice(0, 3).map((t) => (
@@ -74,9 +77,9 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
                 data-cursor-hover
-                className="text-xs flex items-center gap-1.5 text-[var(--color-mist)] hover:text-[var(--color-ivory)]"
+                className="text-xs font-mono font-medium flex items-center gap-1.5 text-[var(--color-mist)] hover:text-[var(--color-cyan-soft)] transition-colors"
               >
-                <FiGithub size={13} /> Code
+                <FiGithub size={14} /> Code
               </a>
             )}
             {project.liveUrl && (
@@ -86,13 +89,13 @@ export function ProjectCard({ project, onOpen, index }: ProjectCardProps) {
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
                 data-cursor-hover
-                className="text-xs flex items-center gap-1.5 text-[var(--color-mist)] hover:text-[var(--color-ivory)]"
+                className="text-xs font-mono font-medium flex items-center gap-1.5 text-[var(--color-cyan-soft)] hover:text-[var(--color-violet-soft)] transition-colors"
               >
-                <FiExternalLink size={13} /> Live
+                <FiExternalLink size={14} /> Live Demo
               </a>
             )}
-            <span className="ml-auto text-xs flex items-center gap-1 text-[var(--color-mist-dim)]">
-              <FiStar size={12} /> {project.categories[0]}
+            <span className="ml-auto text-[11px] font-mono flex items-center gap-1 text-[var(--color-mist-dim)] truncate max-w-[110px]">
+              <FiTag size={11} /> {project.categories[0]}
             </span>
           </div>
         </div>

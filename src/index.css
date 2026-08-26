@@ -1,28 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Design tokens: Signal / Pipeline theme ---- */
-  --color-ink: #05050a;           /* base background, near-black */
-  --color-surface: #0d0e17;       /* card / panel surface */
-  --color-surface-2: #12131f;     /* elevated surface */
-  --color-line: #23253a;          /* hairline borders on dark */
+  /* ---- Design tokens: Cyber-Electric High-Contrast Theme ---- */
+  --color-ink: #090d16;           /* Base deep midnight slate background */
+  --color-surface: #0f172a;       /* Slate-900 surface for cards/panels */
+  --color-surface-2: #1e293b;     /* Slate-800 elevated surface */
+  --color-line: #334155;          /* Slate-700 hairline borders */
 
+  --color-cyan: #00f0ff;          /* Electric Cyan */
+  --color-cyan-soft: #38bdf8;
   --color-violet: #8b5cf6;
-  --color-violet-soft: #a78bfa;
-  --color-signal: #3b82f6;        /* blue accent */
+  --color-violet-soft: #c084fc;   /* Neon Magenta-Violet */
+  --color-signal: #3b82f6;        /* Cobalt Signal Blue */
   --color-signal-soft: #60a5fa;
-  --color-mint: #34d399;          /* used sparingly: "status: ok" */
+  --color-mint: #10b981;          /* Cyber Mint Green */
+  --color-amber: #f59e0b;         /* Radiant Amber */
 
-  --color-ivory: #f4f4f8;
-  --color-mist: #97a0c3;          /* muted slate-lavender text on dark */
-  --color-mist-dim: #676f92;
+  --color-ivory: #f8fafc;         /* Slate-50 pure white text (100% WCAG AAA) */
+  --color-mist: #cbd5e1;          /* Slate-200 high-contrast text (~11:1 ratio) */
+  --color-mist-dim: #94a3b8;      /* Slate-400 crisp subtext (~6.5:1 ratio) */
 
-  /* Light mode surfaces (swapped via .light class, see below) */
-  --color-l-bg: #f6f6fb;
+  /* Light mode high-contrast surfaces */
+  --color-l-bg: #f8fafc;
   --color-l-surface: #ffffff;
-  --color-l-line: #e3e4ef;
-  --color-l-ink: #0b0c14;
-  --color-l-mist: #565b78;
+  --color-l-surface-2: #f1f5f9;
+  --color-l-line: #cbd5e1;
+  --color-l-ink: #0f172a;
+  --color-l-mist: #334155;
+  --color-l-mist-dim: #475569;
 
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body: "Inter", "Segoe UI", sans-serif;
@@ -39,11 +44,11 @@
   html.light {
     --color-ink: var(--color-l-bg);
     --color-surface: var(--color-l-surface);
-    --color-surface-2: #eef0fa;
+    --color-surface-2: var(--color-l-surface-2);
     --color-line: var(--color-l-line);
     --color-ivory: var(--color-l-ink);
     --color-mist: var(--color-l-mist);
-    --color-mist-dim: #8b90ab;
+    --color-mist-dim: var(--color-l-mist-dim);
   }
 
   body {
@@ -55,19 +60,19 @@
   }
 
   ::selection {
-    background: var(--color-violet);
-    color: white;
+    background: var(--color-cyan-soft);
+    color: #0f172a;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-signal-soft);
+    outline: 2px solid var(--color-cyan-soft);
     outline-offset: 3px;
   }
 
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: var(--color-ink); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--color-violet), var(--color-signal));
+    background: linear-gradient(180deg, var(--color-cyan-soft), var(--color-violet-soft));
     border-radius: 999px;
   }
 
@@ -86,40 +91,44 @@
   .font-mono { font-family: var(--font-mono); }
 
   .text-gradient {
-    background: linear-gradient(120deg, var(--color-violet-soft), var(--color-signal-soft));
+    background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .glass {
-    background: color-mix(in srgb, var(--color-surface) 65%, transparent);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
     border: 1px solid var(--color-line);
   }
 
   .glass-strong {
-    background: color-mix(in srgb, var(--color-surface-2) 82%, transparent);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    background: color-mix(in srgb, var(--color-surface-2) 90%, transparent);
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
     border: 1px solid var(--color-line);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   }
 
-  /* backdrop-filter blur is one of the most expensive operations for mobile
-     GPUs, and this design stacks many glass cards on one page. Cut blur
-     radius sharply on small / touch screens so scrolling stays smooth —
-     the surfaces stay visually distinct via background + border alone. */
   @media (max-width: 767px), (pointer: coarse) {
     .glass {
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
-      background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+      background: color-mix(in srgb, var(--color-surface) 92%, transparent);
     }
     .glass-strong {
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      background: color-mix(in srgb, var(--color-surface-2) 94%, transparent);
+      background: color-mix(in srgb, var(--color-surface-2) 96%, transparent);
     }
   }
 
@@ -138,15 +147,15 @@
 
 @keyframes float-slow {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.05); }
+  50% { transform: translate(25px, -35px) scale(1.08); }
 }
 @keyframes float-slower {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-25px, 25px) scale(1.08); }
+  50% { transform: translate(-30px, 30px) scale(1.1); }
 }
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
 }
 @keyframes blink-caret {
   0%, 100% { opacity: 1; }
