@@ -13,10 +13,10 @@ interface Message {
 }
 
 const QUICK_PROMPTS = [
+  '🐍 Does he know Python?',
   '🚀 Flagship Projects',
   '⚡ Tech Stack & Skills',
   '📄 Download Resume',
-  '📬 How to Contact',
 ]
 
 export function ChatbotWidget() {
@@ -27,7 +27,7 @@ export function ChatbotWidget() {
     {
       id: 'welcome-1',
       sender: 'agent',
-      text: "👋 Hi! I'm Hameem's AI Portfolio Assistant. Ask me anything about Hameem's projects, tech stack, experience, or how to get in touch!",
+      text: "👋 Hi! I'm Hameem's AI Portfolio Assistant. Ask me anything about Hameem's projects, Python experience, tech stack, or how to get in touch!",
     },
   ])
 
@@ -46,6 +46,51 @@ export function ChatbotWidget() {
   const generateResponse = (query: string): { text: string; actionLink?: { label: string; href: string } } => {
     const q = query.toLowerCase().trim()
 
+    // 1. Direct Python knowledge check
+    if (q.includes('know python') || q.includes('knows python') || (q.includes('python') && (q.includes('does') || q.includes('know') || q.includes('experience') || q.includes('good')))) {
+      return {
+        text: "Yes! Hameem has extensive hands-on experience with Python across full-stack backend platforms, AI/ML models, and data engineering pipelines:\n\n• **Data Engineering & ETL (DataFlowX)**: Automated data ingestion, CSV profiling, schema validation, SQLAlchemy, Pandas transformations, and Airflow pipeline orchestration.\n• **AI & RAG Applications (Detective Dank)**: Built fact-checking AI using Python, FAISS vector search, LangChain, and OpenAI/Anthropic APIs.\n• **Data Analytics (Netflix Dashboard)**: Developed interactive telemetry dashboards using Python, Streamlit, Pandas, Plotly, and WordCloud.\n• **Machine Learning (Car Price Prediction)**: Predictive regression modeling with Python, Scikit-learn, NumPy, and Matplotlib.\n• **Algorithms & Data Structures**: Implemented Trie prefix search engines, DSA benchmarks, and desktop Tkinter applications in Python.",
+        actionLink: {
+          label: 'View Python Projects',
+          href: '#projects',
+        },
+      }
+    }
+
+    // 2. Direct React / TypeScript knowledge check
+    if (q.includes('know react') || q.includes('know typescript') || q.includes('know js') || q.includes('know javascript')) {
+      return {
+        text: "Yes! Hameem builds modern, production React 19 & TypeScript applications with Vite, Tailwind CSS v4, Framer Motion, and Redux Toolkit — including his flagship SaaS platform FleetTrack, DataFlowX, and Detective Dank.",
+        actionLink: {
+          label: 'View Web Projects',
+          href: '#projects',
+        },
+      }
+    }
+
+    // 3. Direct Node / Express / Backend knowledge check
+    if (q.includes('know node') || q.includes('know express') || q.includes('know backend') || q.includes('know fastapi')) {
+      return {
+        text: "Yes! Hameem designs robust backend REST APIs and real-time WebSocket servers using Node.js, Express.js, and Python FastAPI — featuring JWT authentication, RBAC authorization, Joi schema validation, and Socket.io telematics.",
+        actionLink: {
+          label: 'View FleetTrack SaaS',
+          href: 'https://github.com/Hameeem/FleetTrack',
+        },
+      }
+    }
+
+    // 4. Direct SQL / Database knowledge check
+    if (q.includes('know sql') || q.includes('know mysql') || q.includes('know postgres') || q.includes('know database')) {
+      return {
+        text: "Yes! Hameem designs normalized SQL database schemas in MySQL & PostgreSQL, using foreign keys, indexes, Knex migrations, and ORM abstractions (SQLAlchemy).",
+        actionLink: {
+          label: 'View Skills Toolkit',
+          href: '#skills',
+        },
+      }
+    }
+
+    // 5. Specific project queries
     if (q.includes('fleettrack') || q.includes('fleet') || q.includes('telematics') || q.includes('mapbox') || q.includes('saas')) {
       return {
         text: "🚚 **FleetTrack** is Hameem's 2026 Flagship Multi-Tenant Fleet & Trip Management SaaS Platform! It features strict tenant data isolation (`organization_id`), RBAC (Admin, Manager, Driver), real-time simulated GPS tracking via WebSockets (Socket.io), Mapbox GL telematics, geofence breach alerts, and interactive Recharts dashboards.",
@@ -58,7 +103,7 @@ export function ChatbotWidget() {
 
     if (q.includes('dataflowx') || q.includes('etl') || q.includes('pipeline') || q.includes('airflow')) {
       return {
-        text: "⚡ **DataFlowX** is an enterprise data engineering platform that automates ingestion, profiling, schema validation, transformation, and simulated Apache Airflow pipeline orchestration for structured datasets.",
+        text: "⚡ **DataFlowX** is an enterprise data engineering platform built with Python & React that automates ingestion, profiling, schema validation, transformation, and simulated Apache Airflow pipeline orchestration for structured datasets.",
         actionLink: {
           label: 'View DataFlowX Repository',
           href: 'https://github.com/Hameeem/DataflowX',
@@ -68,7 +113,7 @@ export function ChatbotWidget() {
 
     if (q.includes('detective') || q.includes('rag') || q.includes('misinformation') || q.includes('dank') || q.includes('faiss') || q.includes('langchain')) {
       return {
-        text: "🔎 **Detective Dank** is an AI misinformation detection platform built with Retrieval-Augmented Generation (RAG). It verifies claims against trusted news sources using FAISS vector search, LangChain, and OpenAI/Anthropic APIs with full source citations.",
+        text: "🔎 **Detective Dank** is an AI misinformation detection platform built with Python & Retrieval-Augmented Generation (RAG). It verifies claims against trusted news sources using FAISS vector search, LangChain, and OpenAI/Anthropic APIs with full source citations.",
         actionLink: {
           label: 'Try Detective Dank Live',
           href: 'https://detective-dank.vercel.app',
@@ -88,7 +133,7 @@ export function ChatbotWidget() {
 
     if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('flagship')) {
       return {
-        text: "💻 Hameem has built 8+ production & engineering projects:\n\n1. **FleetTrack** — Multi-Tenant Fleet SaaS (Next.js, Node, MySQL, Mapbox GL)\n2. **DataFlowX** — Data Engineering & ETL Platform (Python, FastAPI, Postgres, Docker)\n3. **Detective Dank** — RAG AI Fact-Checker (FAISS, LangChain, OpenAI)\n4. **Netflix Analytics Dashboard** — Interactive Streamlit app\n5. **Car Price Prediction Model** — ML Regression model\n6. **Autocomplete Search Engine** — Trie DSA engine",
+        text: "💻 Hameem has built 8+ production & engineering projects:\n\n1. **FleetTrack** — Multi-Tenant Fleet SaaS (Next.js, Node, MySQL, Mapbox GL)\n2. **DataFlowX** — Data Engineering & ETL Platform (Python, FastAPI, Postgres, Docker)\n3. **Detective Dank** — RAG AI Fact-Checker (Python, FAISS, LangChain, OpenAI)\n4. **Netflix Analytics Dashboard** — Interactive Python Streamlit app\n5. **Car Price Prediction Model** — Python ML Regression model\n6. **Autocomplete Search Engine** — Python Trie DSA engine",
         actionLink: {
           label: 'Scroll to Projects Section',
           href: '#projects',
@@ -149,7 +194,7 @@ export function ChatbotWidget() {
     }
 
     return {
-      text: "I'm Hameem's AI Assistant! I can tell you about Hameem's **flagship projects** (FleetTrack, DataFlowX, Detective Dank), **tech stack** (Next.js, Python, React, MySQL, RAG), **education**, or how to **get in touch**! Feel free to click one of the quick suggestions below.",
+      text: "I'm Hameem's AI Assistant! Ask me questions like **\"Does he know Python?\"**, or inquiry about Hameem's **flagship projects** (FleetTrack, DataFlowX, Detective Dank), **skills**, **resume**, or **contact details**!",
     }
   }
 
@@ -185,7 +230,7 @@ export function ChatbotWidget() {
       {
         id: 'welcome-reset',
         sender: 'agent',
-        text: "Chat history cleared! Ask me anything about Hameem's projects, skills, or background.",
+        text: "Chat history cleared! Ask me anything about Hameem's projects, Python experience, skills, or background.",
       },
     ])
   }
@@ -336,7 +381,7 @@ export function ChatbotWidget() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Hameem..."
+                placeholder="Ask e.g. Does he know Python?"
                 className="flex-1 bg-[var(--color-surface-2)] text-xs text-[var(--color-ivory)] placeholder-[var(--color-mist-dim)] px-3 py-2 rounded-xl border border-[var(--color-line)] focus:outline-none focus:border-[var(--color-cyan-soft)] transition-colors"
               />
               <button
