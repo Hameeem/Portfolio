@@ -7,6 +7,7 @@ import { BackToTop } from './components/layout/BackToTop'
 import { CustomCursor } from './components/layout/CustomCursor'
 import { ParticleBackground } from './components/layout/ParticleBackground'
 import { LoadingScreen } from './components/layout/LoadingScreen'
+import { ChatbotWidget } from './components/layout/ChatbotWidget'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 
@@ -26,6 +27,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ChatbotWidget />
         <BackToTop />
       </BrowserRouter>
     </ThemeProvider>
