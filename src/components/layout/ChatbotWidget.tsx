@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMessageSquare, FiX, FiSend, FiBot, FiUser, FiExternalLink, FiSparkles, FiRefreshCw } from 'react-icons/fi'
+import { FiX, FiSend, FiCpu, FiUser, FiExternalLink, FiZap, FiRefreshCw } from 'react-icons/fi'
 
 interface Message {
   id: string
@@ -202,7 +202,7 @@ export function ChatbotWidget() {
           aria-label="Open AI Assistant Chatbot"
           className="relative w-12 h-12 rounded-full bg-gradient-to-r from-[var(--color-cyan-soft)] via-[var(--color-violet)] to-[var(--color-signal)] text-slate-950 flex items-center justify-center shadow-[0_0_25px_rgba(56,189,248,0.4)] border border-cyan-300/40"
         >
-          {isOpen ? <FiX size={20} className="text-white" /> : <FiSparkles size={20} className="text-slate-950 font-bold" />}
+          {isOpen ? <FiX size={20} className="text-white" /> : <FiZap size={20} className="text-slate-950 font-bold" />}
           <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[var(--color-mint)] border-2 border-[var(--color-ink)] animate-pulse" />
         </motion.button>
       </div>
@@ -221,7 +221,7 @@ export function ChatbotWidget() {
             <div className="p-4 bg-[var(--color-surface)]/90 border-b border-[var(--color-line)] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[var(--color-cyan-soft)] to-[var(--color-violet)] flex items-center justify-center text-slate-950 font-bold">
-                  <FiBot size={18} />
+                  <FiCpu size={18} />
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-sm text-[var(--color-ivory)] flex items-center gap-1.5">
@@ -260,7 +260,7 @@ export function ChatbotWidget() {
                 >
                   {m.sender === 'agent' && (
                     <div className="w-6 h-6 rounded-lg bg-[var(--color-surface-2)] border border-[var(--color-line)] flex items-center justify-center text-[var(--color-cyan-soft)] shrink-0 mt-0.5">
-                      <FiBot size={13} />
+                      <FiCpu size={13} />
                     </div>
                   )}
                   <div
@@ -298,7 +298,7 @@ export function ChatbotWidget() {
               {isTyping && (
                 <div className="flex gap-2.5 items-center">
                   <div className="w-6 h-6 rounded-lg bg-[var(--color-surface-2)] border border-[var(--color-line)] flex items-center justify-center text-[var(--color-cyan-soft)] shrink-0">
-                    <FiBot size={13} />
+                    <FiCpu size={13} />
                   </div>
                   <div className="bg-[var(--color-surface-2)] px-3 py-2 rounded-xl text-[var(--color-mist-dim)] font-mono text-[11px] flex items-center gap-1.5 border border-[var(--color-line)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-cyan-soft)] animate-bounce" />
